@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
 class Game {
   static Status = {
-    idle: 'idle',
-    playing: 'playing',
-    win: 'win',
-    lose: 'lose',
+    idle: "idle",
+    playing: "playing",
+    win: "win",
+    lose: "lose",
   };
 
   constructor(
@@ -374,7 +374,7 @@ class Game {
   }
 
   printTiles() {
-    const cells = document.getElementsByClassName('field-cell');
+    const cells = document.getElementsByClassName("field-cell");
     const flatState = this.state.flat();
 
     for (let i = 0; i < flatState.length; i++) {
@@ -388,8 +388,8 @@ class Game {
         }
       } else {
         if (currentCell !== undefined) {
-          currentCell.textContent = '';
-          currentCell.className = 'field-cell';
+          currentCell.textContent = "";
+          currentCell.className = "field-cell";
         }
       }
     }

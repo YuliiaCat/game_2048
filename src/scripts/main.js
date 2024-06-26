@@ -1,36 +1,36 @@
-'use strict';
+"use strict";
 
-const Game = require('../modules/Game.class');
+const Game = require("../modules/Game.class");
 const game = new Game();
 
-const startBtn = document.querySelector('.start');
-const startMessage = document.querySelector('.message-start');
-const winMessage = document.querySelector('.message-win');
-const loseMessage = document.querySelector('.message-lose');
-const score = document.querySelector('.game-score');
+const startBtn = document.querySelector(".start");
+const startMessage = document.querySelector(".message-start");
+const winMessage = document.querySelector(".message-win");
+const loseMessage = document.querySelector(".message-lose");
+const score = document.querySelector(".game-score");
 
 initialize();
 
 function initialize() {
-  startBtn.addEventListener('click', () => {
-    if (startBtn.classList.contains('start')) {
-      startBtn.className = 'button restart';
-      startBtn.textContent = 'Restart';
-      startMessage.classList.add('hidden');
+  startBtn.addEventListener("click", () => {
+    if (startBtn.classList.contains("start")) {
+      startBtn.className = "button restart";
+      startBtn.textContent = "Restart";
+      startMessage.classList.add("hidden");
       game.start();
     } else {
-      startBtn.className = 'button start';
-      startBtn.textContent = 'Start';
-      startMessage.classList.remove('hidden');
-      winMessage.classList.add('hidden');
-      loseMessage.classList.add('hidden');
-      score.textContent = '0';
+      startBtn.className = "button start";
+      startBtn.textContent = "Start";
+      startMessage.classList.remove("hidden");
+      winMessage.classList.add("hidden");
+      loseMessage.classList.add("hidden");
+      score.textContent = "0";
 
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
       game.restart();
     }
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
   });
 }
 
@@ -40,19 +40,19 @@ function handleKeyDown(keyEvent) {
   let numbersMove = false;
 
   switch (keyEvent.key) {
-    case 'ArrowUp':
+    case "ArrowUp":
       numbersMove = game.moveUp();
       break;
 
-    case 'ArrowDown':
+    case "ArrowDown":
       numbersMove = game.moveDown();
       break;
 
-    case 'ArrowRight':
+    case "ArrowRight":
       numbersMove = game.moveRight();
       break;
 
-    case 'ArrowLeft':
+    case "ArrowLeft":
       numbersMove = game.moveLeft();
       break;
   }
@@ -63,9 +63,9 @@ function handleKeyDown(keyEvent) {
     const newStatus = game.getStatus();
 
     if (newStatus === Game.Status.lose) {
-      loseMessage.classList.remove('hidden');
+      loseMessage.classList.remove("hidden");
     } else if (newStatus === Game.Status.win) {
-      winMessage.classList.remove('hidden');
+      winMessage.classList.remove("hidden");
     }
   }
 }

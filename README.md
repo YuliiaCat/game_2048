@@ -7,7 +7,6 @@ Technologies Used:
 HTML
 SCSS/SASS
 JavaScript
-Preview
 
 You can preview the game here.
 DEMO: https://yuliiacat.github.io/game_2048/
